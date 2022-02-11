@@ -67,7 +67,7 @@ flutter config --android-sdk $HOME/Library/Android/sdk
 
 \_tabController = TabController(length: 2, vsync: this)； 报错， 要继承 with SingleTickerProviderStateMixin 动画用 不然 vsync: this 报错
 
-## Quesiongs
+## Questions
 
 1. get_it
 
