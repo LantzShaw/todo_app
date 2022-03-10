@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-
 class CommunityScreen extends StatefulWidget {
   CommunityScreen({Key? key}) : super(key: key);
 
@@ -11,54 +10,46 @@ class CommunityScreen extends StatefulWidget {
 
 class _CommunityScreenState extends State<CommunityScreen> {
   List<String> items = ["1", "2", "3", "4", "5", "6", "7", "8"];
-  RefreshController _refreshController = RefreshController(initialRefresh: false);
+  RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
 
-  void _onRefresh() async{
+  void _onRefresh() async {
     // monitor network fetch
     await Future.delayed(Duration(milliseconds: 1000));
     // if failed,use refreshFailed()
     _refreshController.refreshCompleted();
   }
 
-  void _onLoading() async{
+  void _onLoading() async {
     // monitor network fetch
     await Future.delayed(Duration(milliseconds: 1000));
     // if failed,use loadFailed(),if no data return,use LoadNodata()
-    items.add((items.length+1).toString());
-    if(mounted)
-    setState(() {
-
-    });
+    items.add((items.length + 1).toString());
+    if (mounted) setState(() {});
     _refreshController.loadComplete();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('refresh')
-      ),
+      appBar: AppBar(title: Text('refresh')),
       body: SmartRefresher(
         enablePullDown: true,
         enablePullUp: true,
         header: WaterDropHeader(),
-       footer: CustomFooter(
+        footer: CustomFooter(
           builder: (BuildContext context, LoadStatus? mode) {
-            Widget body ;
-            if(mode == LoadStatus.idle){
-              body =  Text("pull up load");
-            }
-            else if(mode == LoadStatus.loading){
+            Widget body;
+            if (mode == LoadStatus.idle) {
+              body = Text("pull up load");
+            } else if (mode == LoadStatus.loading) {
               // body =  CupertinoActivityIndicator();
-              body =  Text('helle');
-            }
-            else if(mode == LoadStatus.failed){
+              body = Text('helle');
+            } else if (mode == LoadStatus.failed) {
               body = Text("Load Failed!Click retry!");
-            }
-            else if(mode == LoadStatus.canLoading){
-                body = Text("release to load more");
-            }
-            else{
+            } else if (mode == LoadStatus.canLoading) {
+              body = Text("release to load more");
+            } else {
               body = Text("No more Data");
             }
             return Container(

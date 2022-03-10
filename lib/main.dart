@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/routes.dart';
 import 'package:todo_app/screens/community/commnity_screen.dart';
+import 'package:todo_app/screens/settings/settings_screen.dart';
 import 'package:todo_app/screens/sign_up/sign_up_screen.dart';
 import 'package:todo_app/screens/sign_in/sign_in_screen.dart';
 // import 'package:todo_app/widgets/custom_bottom_nav_bar.dart';
@@ -26,10 +27,10 @@ class MyApp extends StatelessWidget {
         // ),
         // canvasColor: Colors.white.withOpacity(0.0),
         colorScheme: Theme.of(context).colorScheme.copyWith(
-          primary: Color(0xFF476CEE),
-          // secondary will be the textColor, when the textTheme is set to accent
-          secondary: Colors.white,
-      ),
+              primary: Color(0xFF476CEE),
+              // secondary will be the textColor, when the textTheme is set to accent
+              secondary: Colors.white,
+            ),
         // primaryColor: Colors.red,
         // buttonTheme: ButtonThemeData(
         //   buttonColor: Colors.red
@@ -39,8 +40,8 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         splashColor: Color(0x40CCCCCC).withOpacity(0), // 取消底部导航涟漪效果
       ),
-      // home: CustomBottomNavBar(),
-      home: CommunityScreen(),
+      home: CustomBottomNavBar(),
+      // home: SignInScreen(),
       // routes: routes,
       onGenerateRoute: RouteGenerator.generateRoute,
       // initialRoute: ProfileScreen.routeName,

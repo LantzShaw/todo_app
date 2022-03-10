@@ -1,28 +1,8 @@
-import 'http_exceptions.dart';
+import 'package:dio/dio.dart';
 
-class HttpResponse {
-  late bool ok;
-  dynamic? data;
-  HttpException? error;
+import './http.dart';
 
-  HttpResponse._internal({this.ok = false});
-
-  HttpResponse.success(this.data) {
-    this.ok = true;
-  }
-
-  HttpResponse.failure({String? errorMsg, int? errorCode}) {
-    this.error = BadRequestException(message: errorMsg, code: errorCode);
-    this.ok = false;
-  }
-
-  HttpResponse.failureFormResponse({dynamic? data}) {
-    this.error = BadResponseException(data);
-    this.ok = false;
-  }
-
-  HttpResponse.failureFromError([HttpException? error]) {
-    this.error = error ?? UnknownException();
-    this.ok = false;
-  }
+/// Response 解析
+abstract class HttpTransformer {
+  HttpResponse parse(Response response);
 }

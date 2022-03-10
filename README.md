@@ -71,7 +71,7 @@ flutter config --android-sdk $HOME/Library/Android/sdk
 
 1. get_it
 
-2. 状态管理 (getx provider bloc  Scoped_model flutter_redux ...)
+2. 状态管理 (getx provider bloc  Scoped_model flutter_redux ...) event_bus
 
 3. 什么时候用 const, 什么时候用 final
 
@@ -89,7 +89,7 @@ flutter config --android-sdk $HOME/Library/Android/sdk
 
 10. export 用法
 
-11. Scaffold()可以嵌套 Scaffold()吗
+11. Scaffold()可以嵌套 Scaffold()吗？ 可以
 
 12. 如何在 statefulWidget 中获取参数
 
@@ -144,12 +144,40 @@ flutter config --android-sdk $HOME/Library/Android/sdk
  
  pull_to_refresh
 
+25. LayoutBuilder Builder
+
+26. 轮播图 | 插件(flutter_swiper)
+  参考文章 https://www.jianshu.com/p/79e3c308b3f5
+
+27. Image.network Image.asset svgPicture
+
+28. 瀑布流实现
+
+29. flutter开发规范
+
+30. aam 
+
+31. 直播 推流 (https://blog.csdn.net/qq_21520773/article/details/104281615)
+
+32. 视频播放
+
+33. 调用摄像头 保存相册 蓝牙
+
+34. 聊天 通话
+
+35. 跳转到其他app
+
+36. 支付
+
 ```sh
 
 自定义Icon
 https://segmentfault.com/a/1190000019750283
 
 ```
+Dart/Flutter: How to use a Future with a Duration delay
+
+https://alvinalexander.com/source-code/dart-future-duration-delay-example/
 
 # 尽量用 const 的理由
   # 参考文章: https://blog.csdn.net/haha223545/article/details/105494312/
@@ -442,6 +470,21 @@ Stack(
   Get.put()
   Get.lazyput()
   Get.asyncput()
+
+  HttpClient client = HttpClient(dioConfig: dioConfig);
+  Get.put<HttpClient>(client);
+
+  HttpClient dio = Get.find<HttpClient>();
+
+
+   void get() async {
+    HttpResponse appResponse = await dio.get("api/v2/banners");
+    if (appResponse.ok) {
+      debugPrint("====" + appResponse.data.toString());
+    } else {
+      debugPrint("====" + appResponse.error.toString());
+    }
+  }
 ```
 
 ```sh
