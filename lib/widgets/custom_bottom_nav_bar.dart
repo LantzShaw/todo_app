@@ -46,32 +46,31 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         onTap: _onItemTapped,
         items: [
           BottomNavigationBarItem(
-              // icon: Icon(Icons.home),
-              icon: Icon(IconData(0xe7ae, fontFamily: 'IconFont')), // 自定义图标
-              label: '首页',
-              // backgroundColor: Colors.white
-              ),
+            // icon: Icon(Icons.home),
+            icon: const Icon(IconData(0xe7ae, fontFamily: 'IconFont')), // 自定义图标
+            label: '首页',
+            // backgroundColor: Colors.white
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.accessibility_outlined),
-              label: '社区',
-              // backgroundColor: Colors.white
-              ),
-        
+            icon: Icon(Icons.accessibility_outlined),
+            label: '社区',
+            // backgroundColor: Colors.white
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: '消息',
-              // backgroundColor: Colors.white
-              ),
-                BottomNavigationBarItem(
-              icon: Icon(Icons.wysiwyg_rounded),
-              label: '动态',
-              // backgroundColor: Colors.white
-              ),
+            icon: Icon(Icons.notifications),
+            label: '消息',
+            // backgroundColor: Colors.white
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: '我的',
-              // backgroundColor: Colors.white
-              ),
+            icon: Icon(Icons.wysiwyg_rounded),
+            label: '动态',
+            // backgroundColor: Colors.white
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: '我的',
+            // backgroundColor: Colors.white
+          ),
         ],
       ),
     );

@@ -39,7 +39,22 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
           title: Text(widget.title),
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.grey, size: 18.0),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 18.0,
+          ),
         ),
         body: CustomScrollView(slivers: <Widget>[
           SliverPadding(
@@ -51,7 +66,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   width: MediaQuery.of(context).size.width,
                   // color: Colors.blue, // 设置了decoration后，不能再设置Container的color，可以在BoxDecoration里面设置
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Color(0xFFffccc7),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
@@ -61,7 +76,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   width: 100.0,
                   // color: Colors.blue,
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Color(0xFFffe7ba),
                       borderRadius: BorderRadius.circular(10.0)),
                 ),
                 SizedBox(height: 20.0),
@@ -69,8 +84,45 @@ class _DetailScreenState extends State<DetailScreen> {
                   height: 100.0,
                   width: 100.0,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.blue),
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color(0xFFfff1b8),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color(0xFFb5f5ec),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color(0xFFefdbff),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color(0xFFd6e4ff),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color(0xFFffd6e7),
+                  ),
                 ),
               ]),
             ),

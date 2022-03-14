@@ -63,10 +63,10 @@
 // import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:todo_app/widgets/custom_cell.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
-
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -109,18 +109,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     animation.addListener(() {
       setState(() {});
     });
-      
+
     this._name.text = 'container';
   }
 
   void getData() async {
+    Dio dio = new Dio();
 
-  Dio dio = new Dio();
-  
-  final response = await dio.post("http://rap2api.taobao.org/app/mock/280952/api/v1/articleList");
-  
-  // print(response.data is Map);
-  print(response.data);
+    final response = await dio
+        .post("http://rap2api.taobao.org/app/mock/280952/api/v1/articleList");
+
+    // print(response.data is Map);
+    print(response.data);
 
 //     HttpClient httpClient = new HttpClient();
 
@@ -141,7 +141,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 // }
 
 // httpClient.close();
-
   }
 
   Widget buildGrid() {
@@ -161,144 +160,125 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        // appBar: AppBar(
+        //   systemOverlayStyle: SystemUiOverlayStyle(
+        //     // Status bar color
+        //     statusBarColor: Colors.red,
 
-    
-    return Scaffold(
-      backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   elevation: 0.0,
-      //   title: Text('Home', style: TextStyle(color: Colors.black)),
-      //   // backgroundColor: Colors.white,
-      //   centerTitle: true,
-      //   flexibleSpace: Container(
-      //     decoration: BoxDecoration(
-      //       gradient: LinearGradient(colors: [
-      //         Color(0xFFd9f7be),
-      //         Color(0xFFfffbe6),
-      //         Color(0xFFFFFFFF),
-      //       ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-      //     ),
-      //   ),
-      // ),
-      body: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-                  Color(0xFFd9f7be),
-                  Color(0xFFfffbe6),
-                  Color(0xFFFFFFFF),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.01, 0.09, 1]),
-          ),
-          child: Column(children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).padding.top
+        //     // Status bar brightness (optional)
+        //     statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+        //     statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        //   ),
+        // ),
+        // appBar: AppBar(
+        //   elevation: 0.0,
+        //   title: Text('Home', style: TextStyle(color: Colors.black)),
+        //   // backgroundColor: Colors.white,
+        //   centerTitle: true,
+        //   flexibleSpace: Container(
+        //     decoration: BoxDecoration(
+        //       gradient: LinearGradient(colors: [
+        //         Color(0xFFd9f7be),
+        //         Color(0xFFfffbe6),
+        //         Color(0xFFFFFFFF),
+        //       ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+        //     ),
+        //   ),
+        // ),
+        body: Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(
+                top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFd9f7be),
+                    Color(0xFFfffbe6),
+                    Color(0xFFFFFFFF),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.01, 0.09, 1]),
             ),
-            TextField(
-              controller: this._name,
-              decoration: InputDecoration(
-                hintText: 'Type your username',
-                // helperText: 'helele',
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                    width:1
-                  )
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                    width:1
-                  )
-                ),
-                // labelText: 'Name',
-                icon: Icon(Icons.person, color: Colors.green)
+            child: Column(children: <Widget>[
+              SizedBox(height: MediaQuery.of(context).padding.top),
+              TextField(
+                  controller: this._name,
+                  decoration: InputDecoration(
+                      hintText: 'Type your username',
+                      // helperText: 'helele',
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide:
+                              BorderSide(color: Colors.green, width: 1)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide:
+                              BorderSide(color: Colors.green, width: 1)),
+                      // labelText: 'Name',
+                      icon: Icon(Icons.person, color: Colors.green)),
+                  onChanged: (value) {
+                    print(value);
+
+                    this.setState(() {
+                      this._name.text = value;
+                    });
+                  }),
+              SizedBox(height: 20.0),
+              TextField(
+                obscureText: true, // 密码框
+                decoration: InputDecoration(
+                    hintText: 'Type your password',
+                    // helperText: 'helele',
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(color: Colors.green, width: 1)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(color: Colors.green, width: 1)),
+                    // labelText: 'Name',
+                    icon: Icon(Icons.lock_outline, color: Colors.green)),
               ),
-              onChanged: (value) {
-                print(value);
+              Row(children: <Widget>[
+                IconButton(onPressed: null, icon: Icon(Icons.settings)),
+                // TextField(
+                //   decoration: InputDecoration(helperText: 'helele'),
+                // )
+              ]),
 
-                this.setState(() {
-                  this._name.text = value;
-                }); 
-              }
-            ),
-            SizedBox(height: 20.0),
-            TextField(
-              obscureText: true, // 密码框
-              decoration: InputDecoration(
-                hintText: 'Type your password',
-                // helperText: 'helele',
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                    width:1
-                  )
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                    width:1
-                  )
-                ),
-                // labelText: 'Name',
-                icon: Icon(Icons.lock_outline, color: Colors.green)
-              ),
-            ),
-            Row(
-              children: <Widget>[
-                IconButton(
-                  onPressed: null,
-                  icon: Icon(Icons.settings)
-                ),
-              // TextField(
-              //   decoration: InputDecoration(helperText: 'helele'),
-              // )
-            ]),
+              // FadeTransition(opacity: animation, child: FlutterLogo(size: 100.0, textColor: Colors.black)),
 
-            // FadeTransition(opacity: animation, child: FlutterLogo(size: 100.0, textColor: Colors.black)),
+              FlutterLogo(size: 50.0, style: FlutterLogoStyle.stacked),
+              CustomCell('朋友圈', icon: Icon(Icons.verified_user_sharp)),
+              ElevatedButton(
+                  onPressed: () async {
+                    // print('${GetUtils.isEmail(this._name.text.toString())}');
+                    if (GetUtils.isEmail(_name.text.toString())) {
+                      print('true');
 
-            FlutterLogo(size: 50.0, style: FlutterLogoStyle.stacked),
-            CustomCell(
-              title: '朋友圈',
-              imageName: Icons.verified_user_sharp
-            ),
-            ElevatedButton(onPressed: () async {
-              // print('${GetUtils.isEmail(this._name.text.toString())}');
-              if (GetUtils.isEmail(_name.text.toString())) { 
+                      Get.snackbar("正确", "恭喜你, 完全正确",
+                          backgroundColor: Colors.greenAccent);
+                    } else {
+                      Get.snackbar("邮箱错误", "请输入正确的邮箱",
+                          backgroundColor: Colors.pink);
 
-                print('true');
-
-                Get.snackbar("正确", "恭喜你, 完全正确", backgroundColor: Colors.greenAccent);
-              } else {
-                    Get.snackbar(
-                        "邮箱错误",
-                        "请输入正确的邮箱",
-                        backgroundColor: Colors.pink
-                    );
-
-                    print('false');
-              }
-
-            }, child: Text('click me!')),
-            MaterialButton(onPressed: () => {}, child: Text('click me!')),
-            Expanded(
-              flex: 2,
-              child: Text('Expanded Text')
-            ),
-            Image.asset('assets/images/cloud.png', fit: BoxFit.cover),
-             Expanded(
-              flex: 3,
-              child: Text('Expanded Text')
-            )
-          ])),
+                      print('false');
+                    }
+                  },
+                  child: Text('click me!')),
+              MaterialButton(onPressed: () => {}, child: Text('click me!')),
+              Expanded(flex: 2, child: Text('Expanded Text')),
+              Image.asset('assets/images/cloud.png', fit: BoxFit.cover),
+              Expanded(flex: 3, child: Text('Expanded Text'))
+            ])),
+      ),
     );
   }
 }

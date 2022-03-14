@@ -54,19 +54,25 @@ class _OpacityBannerState extends State<OpacityBanner> {
                   ))
               .toList()),
       Positioned(
-          bottom: 20,
-          child: Row(
-              children: list
-                  .asMap()
-                  .keys
-                  .map((i) => Container(
-                      width: 10,
-                      height: 10,
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                          color: i == zIndex ? Colors.blue : Colors.grey,
-                          shape: BoxShape.circle)))
-                  .toList()))
+        bottom: 20,
+        child: Row(
+          children: list
+              .asMap()
+              .keys
+              .map(
+                (i) => Container(
+                  width: 10,
+                  height: 10,
+                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  decoration: BoxDecoration(
+                    color: i == zIndex ? Colors.blue : Colors.grey,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      )
     ]));
   }
 }

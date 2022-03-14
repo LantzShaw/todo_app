@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:todo_app/routes.dart';
 import 'package:todo_app/screens/community/commnity_screen.dart';
 import 'package:todo_app/screens/settings/settings_screen.dart';
@@ -8,7 +11,20 @@ import 'package:todo_app/screens/sign_in/sign_in_screen.dart';
 import 'package:get/get.dart';
 import 'package:todo_app/widgets/custom_bottom_nav_bar.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  if (Platform.isAndroid) {
+    SystemUiOverlayStyle style = SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+
+        ///这是设置状态栏的图标和字体的颜色
+        ///Brightness.light  一般都是显示为白色
+        ///Brightness.dark 一般都是显示为黑色
+        statusBarIconBrightness: Brightness.dark);
+    SystemChrome.setSystemUIOverlayStyle(style);
+  }
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
