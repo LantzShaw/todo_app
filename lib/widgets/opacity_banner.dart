@@ -37,12 +37,15 @@ class _OpacityBannerState extends State<OpacityBanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(alignment: Alignment.center, children: [
-      Stack(
-          children: list
-              .asMap()
-              .keys
-              .map<Widget>((i) => AnimatedOpacity(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Stack(
+            children: list
+                .asMap()
+                .keys
+                .map<Widget>(
+                  (i) => AnimatedOpacity(
                     curve: Curves.easeIn,
                     duration: Duration(milliseconds: 600),
                     opacity: i == zIndex ? 1 : 0,
@@ -51,28 +54,32 @@ class _OpacityBannerState extends State<OpacityBanner> {
                           Color(int.parse(list[i], radix: 16)).withAlpha(255),
                       height: 300, //100%
                     ),
-                  ))
-              .toList()),
-      Positioned(
-        bottom: 20,
-        child: Row(
-          children: list
-              .asMap()
-              .keys
-              .map(
-                (i) => Container(
-                  width: 10,
-                  height: 10,
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                    color: i == zIndex ? Colors.blue : Colors.grey,
-                    shape: BoxShape.circle,
                   ),
-                ),
-              )
-              .toList(),
-        ),
-      )
-    ]));
+                )
+                .toList(),
+          ),
+          Positioned(
+            bottom: 20,
+            child: Row(
+              children: list
+                  .asMap()
+                  .keys
+                  .map(
+                    (i) => Container(
+                      width: 10,
+                      height: 10,
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(
+                        color: i == zIndex ? Colors.blue : Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

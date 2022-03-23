@@ -47,7 +47,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         items: [
           BottomNavigationBarItem(
             // icon: Icon(Icons.home),
-            icon: const Icon(IconData(0xe7ae, fontFamily: 'IconFont')), // 自定义图标
+            icon: const Icon(
+              IconData(0xe7ae, fontFamily: 'IconFont'),
+            ), // 自定义图标
             label: '首页',
             // backgroundColor: Colors.white
           ),

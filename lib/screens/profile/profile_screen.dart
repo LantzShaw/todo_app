@@ -88,10 +88,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 //     child: Image.asset('assets/images/Lantz.jpeg',
                                 //         fit: BoxFit.cover))
                                 ClipOval(
-                                    child: Image.asset(
-                                  'assets/images/Lantz.jpeg',
-                                  fit: BoxFit.cover,
-                                )),
+                                  child: Image.asset(
+                                    'assets/images/Lantz.jpeg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                                 SizedBox(width: 12.0),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -121,9 +122,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             left: 12.0,
                                             right: 12.0,
                                           ),
-                                          label: Text("SVIP",
-                                              style: TextStyle(
-                                                  color: Colors.black)),
+                                          label: Text(
+                                            "SVIP",
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -162,12 +165,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Color.fromARGB(255, 241, 193, 104),
-                                  Color.fromARGB(255, 170, 117, 20)
-                                ]),
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color.fromARGB(255, 241, 193, 104),
+                                Color.fromARGB(255, 170, 117, 20)
+                              ],
+                            ),
                           ),
                           // color: Colors.grey,
                           child: Row(

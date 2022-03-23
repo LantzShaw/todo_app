@@ -38,13 +38,15 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
-
           // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
         elevation: 0.0,
-        title: Text('Home', style: TextStyle(color: Colors.black)),
+        title: Text(
+          'Home',
+          style: TextStyle(color: Colors.black),
+        ),
         // backgroundColor: Colors.white,
         centerTitle: true,
         flexibleSpace: Container(
@@ -60,65 +62,71 @@ class _CartScreenState extends State<CartScreen> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverPadding(
-              padding: const EdgeInsets.all(0),
-              sliver: SliverList(
-                  delegate: SliverChildListDelegate(<Widget>[
-                // SizedBox(height: 20.0),
-                Obx(() => Text('${_controller.name}')),
-                MyCard(
-                    title: 'lesson_01',
-                    content: 'Flutter crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own application alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_02',
-                    content: 'React crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own web applications alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_03',
-                    content: 'React Native crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own applications alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_01',
-                    content: 'Flutter crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own application alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_02',
-                    content: 'React crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own web applications alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_03',
-                    content: 'React Native crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own applications alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_01',
-                    content: 'Flutter crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own application alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_02',
-                    content: 'React crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own web applications alone later.'),
-                SizedBox(height: 20.0),
-                MyCard(
-                    title: 'lesson_03',
-                    content: 'React Native crash course!',
-                    description:
-                        'Learn this course, you \'ll develope your own applications alone later.'),
-              ])))
+            padding: const EdgeInsets.all(0),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                <Widget>[
+                  // SizedBox(height: 20.0),
+                  Obx(
+                    () => Text('${_controller.name}'),
+                  ),
+                  MyCard(
+                      title: 'lesson_01',
+                      content: 'Flutter crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own application alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_02',
+                      content: 'React crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own web applications alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_03',
+                      content: 'React Native crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own applications alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_01',
+                      content: 'Flutter crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own application alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_02',
+                      content: 'React crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own web applications alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_03',
+                      content: 'React Native crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own applications alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_01',
+                      content: 'Flutter crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own application alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_02',
+                      content: 'React crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own web applications alone later.'),
+                  SizedBox(height: 20.0),
+                  MyCard(
+                      title: 'lesson_03',
+                      content: 'React Native crash course!',
+                      description:
+                          'Learn this course, you \'ll develope your own applications alone later.'),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

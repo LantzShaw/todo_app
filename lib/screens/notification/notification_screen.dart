@@ -59,94 +59,99 @@ class _NotificationScreenState extends State<NotificationScreen>
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 9,
-        initialIndex: _selectedIndex,
-        child: Scaffold(
-          body: NestedScrollView(
-              headerSliverBuilder:
-                  (BuildContext context, bool innerBoxIsScrolled) {
-                return <Widget>[
-                  new SliverAppBar(
-                    iconTheme: IconThemeData(color: Colors.black),
-                    title: Text('Product List',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold)),
-                    pinned: true,
-                    floating: true,
-                    elevation: 0.0,
-                    // backgroundColor: Colors.blue.withOpacity(0.9),
-                    backgroundColor: Colors.white,
-                    bottom: TabBar(
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      controller: _tabController,
-                      isScrollable: true,
-                      onTap: _onTabItemTapped,
-                      indicatorWeight: 6.0,
-                      indicatorColor: Color(0XFF647BEF),
-                      labelStyle: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                      // unselectedLabelStyle: TextStyle(color: Colors.red),
-                      // indicator: BoxDecoration(
-                      //     borderRadius:
-                      //         BorderRadius.circular(16.0), // Creates border
-                      //     color: Colors.greenAccent[20]),
-                      tabs: [
-                        Tab(
-                          child: Text('Flutter',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child: Text('React',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child: Text('Node',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child:
-                              Text('Vue', style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child: Text('Mongodb',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child: Text('Mongoose',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child: Text('Express',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child:
-                              Text('Koa', style: TextStyle(color: Colors.grey)),
-                        ),
-                        Tab(
-                          child:
-                              Text('Egg', style: TextStyle(color: Colors.grey)),
-                        ),
-                      ],
+      length: 9,
+      initialIndex: _selectedIndex,
+      child: Scaffold(
+        body: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              new SliverAppBar(
+                iconTheme: IconThemeData(color: Colors.black),
+                title: Text(
+                  'Product List',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+                pinned: true,
+                floating: true,
+                elevation: 0.0,
+                // backgroundColor: Colors.blue.withOpacity(0.9),
+                backgroundColor: Colors.white,
+                bottom: TabBar(
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  controller: _tabController,
+                  isScrollable: true,
+                  onTap: _onTabItemTapped,
+                  indicatorWeight: 6.0,
+                  indicatorColor: Color(0XFF647BEF),
+                  labelStyle: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                  // unselectedLabelStyle: TextStyle(color: Colors.red),
+                  // indicator: BoxDecoration(
+                  //     borderRadius:
+                  //         BorderRadius.circular(16.0), // Creates border
+                  //     color: Colors.greenAccent[20]),
+                  tabs: [
+                    Tab(
+                      child:
+                          Text('Flutter', style: TextStyle(color: Colors.grey)),
                     ),
-                  )
-                ];
-              },
-              body: TabBarView(
-                controller: _tabController,
-                children: <Widget>[
-                  Icon(Icons.flutter_dash),
-                  Icon(Icons.flight_land),
-                  Icon(Icons.perm_camera_mic),
-                  Icon(Icons.follow_the_signs),
-                  Icon(Icons.follow_the_signs),
-                  Icon(Icons.follow_the_signs),
-                  Icon(Icons.follow_the_signs),
-                  Icon(Icons.follow_the_signs),
-                  Icon(Icons.follow_the_signs),
-                ],
-              )),
-        ));
+                    Tab(
+                      child:
+                          Text('React', style: TextStyle(color: Colors.grey)),
+                    ),
+                    Tab(
+                      child: Text('Node', style: TextStyle(color: Colors.grey)),
+                    ),
+                    Tab(
+                      child: Text('Vue', style: TextStyle(color: Colors.grey)),
+                    ),
+                    Tab(
+                      child:
+                          Text('Mongodb', style: TextStyle(color: Colors.grey)),
+                    ),
+                    Tab(
+                      child: Text('Mongoose',
+                          style: TextStyle(color: Colors.grey)),
+                    ),
+                    Tab(
+                      child:
+                          Text('Express', style: TextStyle(color: Colors.grey)),
+                    ),
+                    Tab(
+                      child: Text(
+                        'Koa',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    Tab(
+                      child: Text(
+                        'Egg',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ];
+          },
+          body: TabBarView(
+            controller: _tabController,
+            children: <Widget>[
+              Icon(Icons.flutter_dash),
+              Icon(Icons.flight_land),
+              Icon(Icons.perm_camera_mic),
+              Icon(Icons.follow_the_signs),
+              Icon(Icons.follow_the_signs),
+              Icon(Icons.follow_the_signs),
+              Icon(Icons.follow_the_signs),
+              Icon(Icons.follow_the_signs),
+              Icon(Icons.follow_the_signs),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override

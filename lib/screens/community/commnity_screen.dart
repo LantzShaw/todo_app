@@ -73,7 +73,11 @@ class _CommunityScreenState extends State<CommunityScreen> {
         onRefresh: _onRefresh,
         onLoading: _onLoading,
         child: ListView.builder(
-          itemBuilder: (c, i) => Card(child: Center(child: Text(items[i]))),
+          itemBuilder: (c, i) => Card(
+            child: Center(
+              child: Text(items[i]),
+            ),
+          ),
           itemExtent: 100.0,
           itemCount: items.length,
         ),
