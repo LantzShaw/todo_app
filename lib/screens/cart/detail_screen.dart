@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DetailScreen extends StatefulWidget {
   final String title;
@@ -17,10 +18,16 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  var title = '';
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    title = Get.arguments;
+
+    print('Get.arguments ${Get.arguments}');
   }
 
   @override
@@ -46,7 +53,7 @@ class _DetailScreenState extends State<DetailScreen> {
             },
             icon: Icon(Icons.arrow_back_ios),
           ),
-          title: Text(widget.title),
+          title: Text(title),
           backgroundColor: Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.grey, size: 18.0),
@@ -76,8 +83,9 @@ class _DetailScreenState extends State<DetailScreen> {
                   width: 100.0,
                   // color: Colors.blue,
                   decoration: BoxDecoration(
-                      color: Color(0xFFffe7ba),
-                      borderRadius: BorderRadius.circular(10.0)),
+                    color: Color(0xFFffe7ba),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
                 SizedBox(height: 20.0),
                 Container(

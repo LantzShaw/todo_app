@@ -8,23 +8,25 @@ class CartController extends GetxController {
     return {..._items};
   }
 
-  var  name = 'hello'.obs;
+  final name = 'Lantz'.obs;
 
-  // final title = 'Login';
+  // var title = 'Login';
 
-  // @override
-  // void onInit() {
-  //   print('Arguments: ${Get.arguments}');
-  //   super.onInit();
-  // }
+  void changeName() => name.value = 'Fancy';
 
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    print('Arguments: ${Get.arguments}');
+    super.onInit();
+  }
 
-  //  @override
-  // void onClose() {
-  //   // TODO: implement onClose
-  //   super.onClose();
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
 
-  //   /// 添加缓存
-  //   ProjectCloudSearchCache.setProjectCloudSearchList(searchRecords);
-  // }
+    /// 添加缓存
+    // ProjectCloudSearchCache.setProjectCloudSearchList(searchRecords);
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:todo_app/widgets/custom_cell.dart';
 
 import '../../widgets/opacity_banner.dart';
@@ -207,7 +208,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/signIn');
+                                // Navigator.pushNamed(context, '/signIn');
+                                Get.toNamed('/signIn');
                               },
                               style: ButtonStyle(
                                 // backgroundColor: Colors.red, /// 直接这么写会报错

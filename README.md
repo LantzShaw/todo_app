@@ -330,6 +330,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Theme.of(context).primaryColor; 
   Theme.of(context).accentColor;
 
+  Theme.of(context).colorScheme.primary);
+
   ModalRoute.of(context).settings.arguments; 获取参数
 
   MediaQuery.of(context).padding.top 获取status bar 的高度

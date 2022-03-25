@@ -36,10 +36,10 @@ class MyCard extends StatelessWidget {
           ),
         ],
         gradient: LinearGradient(colors: [
-          // Color(0xFFf0f5ff).withOpacity(1),
-          // Color(0xFFFFFFFF).withOpacity(.5)
-          Color(0xFFfff1b8).withOpacity(1),
-          Color(0xFFffe7ba).withOpacity(1)
+          Color(0xFFf0f5ff).withOpacity(1),
+          Color(0xFFFFFFFF).withOpacity(.5)
+          // Color(0xFFfff1b8).withOpacity(1),
+          // Color(0xFFffe7ba).withOpacity(1)
         ], begin: Alignment.bottomLeft, end: Alignment.centerRight),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10.0),

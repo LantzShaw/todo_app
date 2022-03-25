@@ -16,13 +16,16 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  final CartController _controller = Get.put(CartController());
+  // final CartController _controller = Get.put(CartController());
+  final CartController _controller = CartController();
   final ScrollController _scrollViewController = ScrollController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    _controller.changeName();
 
     // print('_controller: ${_controller}'); // 带下划线_的变量不要写成$${_controlller}
     print('_controller: $_controller');

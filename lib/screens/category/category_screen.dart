@@ -24,9 +24,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 <Widget>[
                   SizedBox(height: 20.0),
                   MyCard(
-                    content: 'ddd',
-                    description: 'ehe',
-                    title: 'ddd',
+                    content: 'Flutter',
+                    description: 'This\'s a description...',
+                    title: 'Flutter Course',
                   )
                 ],
               ),

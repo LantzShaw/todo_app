@@ -209,23 +209,24 @@ class SignInScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 TextButton(
-                    style: TextButton.styleFrom(
-                      splashFactory: NoSplash.splashFactory,
+                  style: TextButton.styleFrom(
+                    splashFactory: NoSplash.splashFactory,
+                  ),
+                  child: Text(
+                    '注册账户',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 122, 121, 121),
                     ),
-                    child: Text(
-                      '注册账户',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 122, 121, 121),
-                      ),
-                    ),
-                    onPressed: () => {
-                          // Get.to(SignUpScreen(), arguments: 'infomation'),
-                          // Get.toNamed('/signUp')
-                          Get.toNamed('/signUp', arguments: {'name': 'Lantz'})
-                          // Get.toNamed('/signUp?name=Lantz', arguments: 'hello')
-                          // Get.offNamed('/signUp'),
-                          // Get.offAllNamed('/signUp'),
-                        }),
+                  ),
+                  onPressed: () => {
+                    // Get.to(SignUpScreen(), arguments: 'infomation'),
+                    // Get.toNamed('/signUp')
+                    Get.toNamed('/signUp', arguments: {'name': 'Lantz'})
+                    // Get.toNamed('/signUp?name=Lantz', arguments: 'hello')
+                    // Get.offNamed('/signUp'),
+                    // Get.offAllNamed('/signUp'),
+                  },
+                ),
                 TextButton(
                     style: TextButton.styleFrom(
                       splashFactory: NoSplash.splashFactory,

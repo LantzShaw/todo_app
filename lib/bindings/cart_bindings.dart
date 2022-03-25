@@ -1,27 +1,9 @@
-// import 'package:get/get.dart';
-// import '../controllers/cart_controller.dart';
+import 'package:get/get.dart';
+import 'package:todo_app/controllers/cart_controller.dart';
 
-// class CartBinding extends Bindings {
-//   @override
-//   void dependencies() {
-//     Get.lazyPut(() => CartController());
-//   }
-// }
-
-
-// void main() {
-//   runApp(GetMaterialApp(
-//     initialRoute: '/home',
-//     getPages: [
-//       GetPage(
-//         name: '/home',
-//         page: () => HomePage(),
-//       ),
-//       GetPage(
-//         name: '/login',
-//         page: () => LoginPage(),
-//         binding: LoginBinding(),
-//       ),
-//     ],
-//   ));
-// }
+class CartBindings extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => CartController());
+  }
+}

@@ -64,6 +64,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:todo_app/global_service.dart';
 import 'package:todo_app/widgets/custom_cell.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
@@ -193,91 +194,146 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         //   ),
         // ),
         body: Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(
-                top: 10.0, left: 20.0, bottom: 10.0, right: 20.0),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFd9f7be),
-                    Color(0xFFfffbe6),
-                    Color(0xFFFFFFFF),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.01, 0.09, 1]),
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(
+            top: 10.0,
+            left: 20.0,
+            bottom: 10.0,
+            right: 20.0,
+          ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFFd9f7be),
+                Color(0xFFfffbe6),
+                Color(0xFFFFFFFF),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.01, 0.09, 1],
             ),
-            child: Column(children: <Widget>[
+          ),
+          child: Column(
+            children: <Widget>[
               SizedBox(height: MediaQuery.of(context).padding.top),
               TextField(
-                  controller: this._name,
-                  decoration: InputDecoration(
-                      hintText: 'Type your username',
-                      // helperText: 'helele',
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          borderSide:
-                              BorderSide(color: Colors.green, width: 1)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          borderSide:
-                              BorderSide(color: Colors.green, width: 1)),
-                      // labelText: 'Name',
-                      icon: Icon(Icons.person, color: Colors.green)),
-                  onChanged: (value) {
-                    print(value);
+                controller: this._name,
+                decoration: InputDecoration(
+                  hintText: 'Type your username',
+                  // helperText: 'helele',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                    borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.primary,
+                      width: 1,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                    borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.primary,
+                      width: 1,
+                    ),
+                  ),
+                  // labelText: 'Name',
+                  icon: Icon(Icons.person,
+                      color: Theme.of(context).colorScheme.primary),
+                ),
+                onChanged: (value) {
+                  print(value);
 
-                    this.setState(() {
-                      this._name.text = value;
-                    });
-                  }),
+                  this.setState(() {
+                    this._name.text = value;
+                  });
+                },
+              ),
               SizedBox(height: 20.0),
               TextField(
                 obscureText: true, // 密码框
                 decoration: InputDecoration(
-                    hintText: 'Type your password',
-                    // helperText: 'helele',
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.green, width: 1)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.green, width: 1)),
-                    // labelText: 'Name',
-                    icon: Icon(Icons.lock_outline, color: Colors.green)),
+                  hintText: 'Type your password',
+                  // helperText: 'helele',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                    borderSide: BorderSide(color: Colors.green, width: 1),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                    borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.primary,
+                      width: 1,
+                    ),
+                  ),
+                  // labelText: 'Name',
+                  icon: Icon(
+                    Icons.lock_outline,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
               ),
-              Row(children: <Widget>[
-                IconButton(onPressed: null, icon: Icon(Icons.settings)),
-                // TextField(
-                //   decoration: InputDecoration(helperText: 'helele'),
-                // )
-              ]),
+              Row(
+                children: <Widget>[
+                  IconButton(
+                    onPressed: null,
+                    icon: Icon(Icons.settings),
+                  ),
+                  // TextField(
+                  //   decoration: InputDecoration(helperText: 'helele'),
+                  // )
+                ],
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  GlobalService.to.switchThemeMode();
+                },
+                child: const Text('Change The Theme'),
+              ),
 
               // FadeTransition(opacity: animation, child: FlutterLogo(size: 100.0, textColor: Colors.black)),
 
               FlutterLogo(size: 50.0, style: FlutterLogoStyle.stacked),
               CustomCell('朋友圈', icon: Icon(Icons.verified_user_sharp)),
               ElevatedButton(
-                  onPressed: () async {
-                    // print('${GetUtils.isEmail(this._name.text.toString())}');
-                    if (GetUtils.isEmail(_name.text.toString())) {
-                      print('true');
+                onPressed: () async {
+                  // print('${GetUtils.isEmail(this._name.text.toString())}');
+                  if (GetUtils.isEmail(_name.text.toString())) {
+                    print('true');
 
-                      Get.snackbar("正确", "恭喜你, 完全正确",
-                          backgroundColor: Colors.greenAccent);
-                    } else {
-                      Get.snackbar("邮箱错误", "请输入正确的邮箱",
-                          backgroundColor: Colors.pink);
+                    Get.snackbar("正确", "恭喜你, 完全正确",
+                        backgroundColor: Colors.greenAccent);
+                  } else {
+                    Get.snackbar("邮箱错误", "请输入正确的邮箱",
+                        backgroundColor: Colors.pink);
 
-                      print('false');
-                    }
-                  },
-                  child: Text('click me!')),
-              MaterialButton(onPressed: () => {}, child: Text('click me!')),
-              Expanded(flex: 2, child: Text('Expanded Text')),
+                    print('false');
+                  }
+                },
+                child: Text('click me!'),
+              ),
+              MaterialButton(
+                onPressed: () => {},
+                child: Text('click me!'),
+              ),
+              Expanded(
+                flex: 2,
+                child: Text('Expanded Text'),
+              ),
               Image.asset('assets/images/cloud.png', fit: BoxFit.cover),
-              Expanded(flex: 3, child: Text('Expanded Text'))
-            ])),
+              Expanded(
+                flex: 3,
+                child: Text('Expanded Text'),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

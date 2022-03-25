@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 import '../../widgets/custom_cell.dart';
 
@@ -44,7 +45,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             color: Colors.black,
             icon: const Icon(Icons.settings),
-            onPressed: () => Navigator.pushNamed(context, '/settings'),
+            // onPressed: () => Navigator.pushNamed(context, '/settings'),
+            onPressed: () => Get.toNamed('/settings'),
           ),
           const SizedBox(width: 15.0)
         ],

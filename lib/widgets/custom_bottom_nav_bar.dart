@@ -14,9 +14,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-    CategoryScreen(),
     CartScreen(),
     NotificationScreen(),
+    CategoryScreen(),
     ProfileScreen(),
   ];
 
@@ -38,7 +38,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.green[500],
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         selectedLabelStyle: TextStyle(fontSize: 12.0),
         unselectedLabelStyle: TextStyle(fontSize: 12.0),
         type: BottomNavigationBarType.fixed,
